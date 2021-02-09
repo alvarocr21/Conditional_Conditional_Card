@@ -29,18 +29,50 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let firstName = `${variables.name}`;
+  variables.name == null ? (firstName = "Name") : firstName;
+
+  let lastName = `${variables.lastname}`;
+  variables.lastname == null ? (lastName = "Last name") : lastName;
+
+  let place = `${variables.socialMediaPosition}`;
+  variables.socialMediaPosition == "position-left"
+    ? (place = "position-left")
+    : (place = "position-right");
+
+  let twi = `${variables.twitter}`;
+  variables.twitter == null ? (twi = "") : twi;
+
+  let gith = `${variables.github}`;
+  variables.github == null ? (gith = "") : gith;
+
+  let link = `${variables.linkedin}`;
+  variables.linkedin == null ? (link = "") : link;
+
+  let insta = `${variables.instagram}`;
+  variables.instagram == null ? (insta = "") : insta;
+
+  let job = `${variables.role}`;
+  variables.role == null ? (job = "") : job;
+
+  let count = `${variables.country}`;
+  variables.country == null ? (count = "") : count;
+
+  let cit = `${variables.city}`;
+  variables.city == null ? (cit = "") : cit;
+  //condición ? expr1 : expr2
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h1>${firstName} ${lastName}</h1>
+          <h2>${job}</h2>
+          <h3>${count}, ${cit}</h3>
+          <ul class="${place}">
+            <li><a href="https://twitter.com/${twi}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${gith}"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${link}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${insta}"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
